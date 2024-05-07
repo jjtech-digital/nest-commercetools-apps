@@ -6,7 +6,7 @@ export class AuthAppController {
   constructor(private readonly authAppService: AuthAppService) {}
 
   @Get()
-  getHello(): string {
-    return this.authAppService.getHello();
+  getTotalCustomers(): Promise<object> {
+    return this.authAppService.getTotalCustomers();
   }
 }

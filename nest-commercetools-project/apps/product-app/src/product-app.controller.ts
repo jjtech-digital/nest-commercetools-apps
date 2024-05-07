@@ -6,7 +6,7 @@ export class ProductAppController {
   constructor(private readonly productAppService: ProductAppService) {}
 
   @Get()
-  getHello(): string {
-    return this.productAppService.getHello();
+  getTotalProducts(): Promise<object> {
+    return this.productAppService.getTotalProducts();
   }
 }
