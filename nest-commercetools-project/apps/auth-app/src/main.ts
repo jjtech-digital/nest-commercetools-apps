@@ -4,6 +4,7 @@ import { ValidationPipe } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import serverlessExpress from '@vendia/serverless-express';
 import { Callback, Context, Handler } from 'aws-lambda';
+import express from 'express';
 import { AuthAppModule } from './auth-app.module';
 
 dotenv.config();
@@ -23,7 +24,11 @@ async function bootstrap(): Promise<Handler> {
 
   await app.init();
 
-  const expressApp = app.getHttpAdapter().getInstance();
+  // Create an express app
+  const expressApp = express();
+  expressApp.use('/auth-app', app.getHttpAdapter().getInstance()); // Mount the NestJS app on "/auth-app" route
+
+  // const expressApp = app.getHttpAdapter().getInstance();
   return serverlessExpress({ app: expressApp });
 }
 

@@ -8,6 +8,8 @@
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
+    "start:auth-app": "npx serverless mono --nestApp auth-app --command offline",
+    "start:product-app": "npx serverless mono --nestApp product-app --command offline",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
@@ -20,14 +22,16 @@
     "test:e2e": "jest --config ./apps/nest-commercetools-project/test/jest-e2e.json"
   },
   "dependencies": {
+    "@commercetools/platform-sdk": "^7.8.0",
     "@commercetools/sdk-auth": "^4.0.1",
-    "@commercetools/sdk-client-v2": "^2.3.0",
+    "@commercetools/sdk-client-v2": "^2.5.0",
+    "@commercetools/sdk-types": "^0.1.2",
     "@nestjs/common": "^10.0.0",
-    "@nestjs/config": "^3.2.2",
     "@nestjs/core": "^10.0.0",
     "@nestjs/platform-express": "^10.0.0",
     "@vendia/serverless-express": "^4.12.6",
     "aws-lambda": "^1.0.7",
+    "axios": "^1.6.8",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.1",
     "dotenv": "^16.4.5",

@@ -1,7 +1,7 @@
 import { Controller, Get } from '@nestjs/common';
 import { ProductAppService } from './product-app.service';
 
-@Controller('product')
+@Controller()
 export class ProductAppController {
   constructor(private readonly productAppService: ProductAppService) {}
 

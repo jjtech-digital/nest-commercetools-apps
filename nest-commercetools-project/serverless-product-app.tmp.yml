@@ -1,5 +1,5 @@
-# File: apps/auth-app/serverless.yml
-service: auth-app
+# File: apps/product-app/serverless.yml
+service: product-app
 
 plugins:
   - serverless-plugin-typescript
@@ -26,11 +26,11 @@ package:
 
 functions:
   main:
-    handler: apps/auth-app/src/main.handler
+    handler: apps/product-app/src/main.handler
     events:
       - http:
           method: ANY
-          path: /auth-app
+          path: /product-app
           cors:
             origins:
               - '*'
