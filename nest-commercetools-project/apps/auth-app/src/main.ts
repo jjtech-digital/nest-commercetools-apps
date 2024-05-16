@@ -28,7 +28,6 @@ async function bootstrap(): Promise<Handler> {
   const expressApp = express();
   expressApp.use('/auth-app', app.getHttpAdapter().getInstance()); // Mount the NestJS app on "/auth-app" route
 
-  // const expressApp = app.getHttpAdapter().getInstance();
   return serverlessExpress({ app: expressApp });
 }
 

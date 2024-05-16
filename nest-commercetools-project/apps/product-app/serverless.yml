@@ -27,6 +27,7 @@ package:
 functions:
   main:
     handler: apps/product-app/src/main.handler
+    lambdaTimeout: 60
     events:
       - http:
           method: ANY
