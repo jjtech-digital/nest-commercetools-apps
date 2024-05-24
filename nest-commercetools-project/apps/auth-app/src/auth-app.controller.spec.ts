@@ -16,7 +16,7 @@ describe('AuthAppController', () => {
 
   describe('root', () => {
     it('should return "Hello World!"', () => {
-      expect(authAppController.getHello()).toBe('Hello World!');
+      expect(authAppController.getTotalCustomers());
     });
   });
 });

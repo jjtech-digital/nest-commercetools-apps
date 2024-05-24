@@ -5,6 +5,11 @@ plugins:
   - serverless-plugin-typescript
   - serverless-offline
 
+custom:
+  serverless-offline:
+    httpPort: 3002
+    lambdaPort: 3022
+
 provider:
   name: aws
   stage: dev
@@ -27,7 +32,7 @@ package:
 functions:
   main:
     handler: apps/product-app/src/main.handler
-    lambdaTimeout: 60
+    timeout: 60
     events:
       - http:
           method: ANY
