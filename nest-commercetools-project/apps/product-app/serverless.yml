@@ -1,0 +1,48 @@
+# File: apps/product-app/serverless.yml
+service: product-app
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 3002
+    lambdaPort: 3022
+
+provider:
+  name: aws
+  stage: dev
+  region: ap-south-1
+  runtime: nodejs18.x
+  memorySize: 512
+  timeout: 10
+  endpointType: REGIONAL
+
+package:
+  exclude:
+    - .gitignore
+    - README.md
+    - serverless.yml
+    - nest-cli.json
+    - .prettierrc
+  excludeDevDependencies: true
+  individually: true
+
+functions:
+  main:
+    handler: apps/product-app/src/main.handler
+    timeout: 60
+    events:
+      - http:
+          method: ANY
+          path: /product-app
+          cors:
+            origins:
+              - '*'
+      - http:
+          method: ANY
+          cors:
+            origins:
+              - '*'
+          path: '{proxy+}'

@@ -1,0 +1,9 @@
+service: 'nest-commercetools-project'
+plugins:
+  - serverless-nest-monorepo
+provider:
+  name: aws
+  region: ap-south-1
+  runtime: nodejs18.x
+  stage: dev
+frameworkVersion: '3'
